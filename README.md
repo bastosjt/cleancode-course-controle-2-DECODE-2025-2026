@@ -1,11 +1,15 @@
-# Projet de refactorisation - Symfony 6
+# Contrôle de clean code n°2
 
 ## Sommaire
 
- * [A propos](#a-propos)
- * [Installation](#installation)
- * [Objectif](#objectif)
- * [Tests](#tests)
+<!--toc:start-->
+- [Contrôle de clean code n°2](#contrôle-de-clean-code-n2)
+  - [Sommaire](#sommaire)
+  - [A propos](#a-propos)
+  - [Installation](#installation)
+  - [Objectif](#objectif)
+  - [Tests](#tests)
+<!--toc:end-->
 
 ## A propos
 
@@ -21,17 +25,15 @@ __Pré-requis :__
 Pour initialiser le projet, veuillez faire un fork du repository sur votre compte. Puis, lancer les commandes suivantes :
 
 ```bash
-git clone https://github.com/<your-username>/refactorisation_projet
+git clone https://github.com/<your-username>/cleancode-course-controle-2<school>-<year>
 
-cd refactorisation_projet
+cd cleancode-course-controle-2<school>-<year>
 
 docker-compose up -d --build
 
-docker-compose exec -u 1000 refacto-projet-php bash
+docker-compose exec -u 1000 cleancode-course-controle-2 composer install
 
-composer install
-
-composer reset-db
+docker-compose exec -u 1000 cleancode-course-controle-2 composer reset-db
 ```
 
 ## Objectif
@@ -53,8 +55,8 @@ Des tests fonctionnels ont été écrits pour garantir la non régression de l'a
 ```bash
 
 # Pour réinitialiser la base de données avec le jeu de tests. Le script va supprimer la base existante, en créer une fraiche, lancer les migrations doctrine puis sauvegarder les fixtures avec alice
-composer reset-db
+docker-compose exec -u 1000 cleancode-course-controle-2 composer reset-db
 
 # Lance tous les tests disponibles. Le script s'arrête lorsqu'une erreur est rencontrée. Ne pas prendre en compte les warnings
-bin/phpunit
+docker-compose exec -u 1000 cleancode-course-controle-2 php bin/phpunit
 ```
