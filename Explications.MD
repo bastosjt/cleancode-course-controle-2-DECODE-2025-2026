@@ -14,3 +14,9 @@ J'ai remarqué que certaines variables possèdent un nom mélangé en anglais et
 Certaines sont entièrement en francais mais il existe les mêmes variables en anglais (ex: id et identifiant).
 
 Les noms des routes et certaines fonctions sont également incohérentes avec un mélange de langue.
+
+### 3) Code inutilisé :
+
+PDO est appelé dans Usercontroller mais jamais utilisé et également un "return null" à été supprimé car il était inutilisé.
+
+Dans GameController, un "return new JsonResponse('coucou');" est écrit mais ne sert à rien.
